@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Project1.Data
@@ -7,7 +8,9 @@ namespace Project1.Data
     //繼承IdentityUser
     public class ProjectUser : IdentityUser
     {
-        //客製化資料欄位 記得要有索引
+        [MaxLength(100)]
+        [Display(Name="用戶名稱")]
+        public string Name { get; set; }
     }
     //記得修改ApplicationDbContext 加入客製化類別
 }
