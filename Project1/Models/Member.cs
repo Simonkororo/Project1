@@ -24,16 +24,11 @@ namespace Project1.Models
 
 		public string? ResidenceArea { get; set; } // 會員居住區域
 
-		[Required]
 		public bool? IsTrainer { get; set; } // 是否為訓練師，1/0
 
-		
 		public bool? IsAdministrator { get; set; } // 是否為系統管理員，1/0
 
 		public string? Photo { get; set; }
 
-		public string? Account { get; set; }
-
-		public string? Password { get; set; }
     }
 }

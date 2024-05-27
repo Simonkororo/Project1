@@ -72,10 +72,11 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                         aria-haspopup="true" aria-expanded="false">管理員設定區</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Members" asp-action="Index">會員總覽MVC</a></li>
+                                        @* <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Members" asp-action="Index">會員總覽MVC</a></li> *@
                                         <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="MemberVueSPA">會員總覽Vue</a></li>
                                         <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Members1" asp-action="Create">註冊會員個人資料</a></li>
-                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="RoleManagement" asp-action="Index">用戶與角色</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">會員權限管理</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ManageUsers">會員帳戶管理</a></li>
 								    </ul>
 							    </li>
                             }
