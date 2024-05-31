@@ -175,7 +175,7 @@
                 }
             },
             mounted() {
-                var url1 = "/Home/GetQuantity";
+                var url1 = @Url.Action("GetQuantity", "Home");
                 axios.get(url1).then(response => {
                     this.quantity = response.data;
                 }).catch(error => {
