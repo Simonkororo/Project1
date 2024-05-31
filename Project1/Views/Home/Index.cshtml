@@ -175,21 +175,21 @@
                 }
             },
             mounted() {
-                var url1 = @Url.Action("GetQuantity", "Home");
+                var url1 = "@Url.Action("GetQuantity", "Home")";
                 axios.get(url1).then(response => {
                     this.quantity = response.data;
                 }).catch(error => {
                     alert(error);
                 });
 
-                var url2 = "/Home/GetAverageRating";
+                var url2 = "@Url.Action("GetAverage", "Home")";
                 axios.get(url2).then(response => {
                     this.average = response.data;
                 }).catch(error => {
                     alert(error);
                 });
 
-                var url3 = "/Home/GetClicks";
+                var url3 = "@Url.Action("GetClicks", "Home")";
                 axios.get(url3).then(response => {
                     this.clicks = response.data;
                 }).catch(error => {
@@ -198,7 +198,7 @@
             },
             methods: {
                 actInfo: function (courseId) {
-                    axios.post('/Home/add1click', { courseID: courseId })
+                    axios.post('@Url.Action("add1Click", "Home")', { courseID: courseId })
                         .then(response => {
                             if (response.status === 200) {
                                 console.log('Click count updated successfully.');
