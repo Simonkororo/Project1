@@ -18,13 +18,22 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    //"https": {
+    //  "commandName": "Project",
+    //  "dotnetRunMessages": true,
+    //  "launchBrowser": true,
+    //  "applicationUrl": "https://localhost:7177;http://localhost:5153",
+    //  "environmentVariables": {
+    //    "ASPNETCORE_ENVIRONMENT": "Development"
+    //  }
+    //},
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7177;http://localhost:5153",
+      "applicationUrl": "https://x-pet.azurewebsites.net",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "IIS Express": {
