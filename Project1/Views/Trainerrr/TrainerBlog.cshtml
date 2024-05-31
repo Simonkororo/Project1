@@ -376,7 +376,7 @@
     <!-- 引入 Bootstrap JS 庫 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        var GetCourseDetailsUrl = "/Trainerrr/GetCourseDetails";
+        var GetCourseDetailsUrl = "~/Trainerrr/GetCourseDetails";
         var courseIdGlobal; // 添加一个全局变量来存储当前的课程ID
 
         function toggleCourseContainer() {
@@ -413,7 +413,7 @@
 
         function reserveCourse() {
             // 使用全局变量中的课程ID跳转到单一课程页面
-            window.location.href = `/Trainerrr/singleCourse/${courseIdGlobal}`;
+            window.location.href = `~/Trainerrr/singleCourse/${courseIdGlobal}`;
             sessionStorage.setItem("ActID", courseIdGlobal);
         }
 

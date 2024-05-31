@@ -46,7 +46,7 @@
                 }
             },
             mounted() {
-                var url1 = "/Trainerrr/getallCourses"
+                var url1 = "~/Trainerrr/getallCourses"
                 axios.get(url1).then(response => {
                     this.courses = response.data;
                 }).catch(error => {
@@ -55,13 +55,13 @@
             },
             methods: {
                 detailsUrl(id) {
-                    return `/Trainerrr/Details/${id}`;
+                    return `~/Trainerrr/Details/${id}`;
                 },
                 editUrl(id) {
-                    return `/Trainerrr/Edit/${id}`;
+                    return `~/Trainerrr/Edit/${id}`;
                 },
                 deleteUrl(id) {
-                    return `/Trainerrr/Delete/${id}`;
+                    return `~/Trainerrr/Delete/${id}`;
                 },
                 approve(item) {
                     if (item.approvalStatus == "通過") {
