@@ -62,6 +62,11 @@ namespace Project1.Migrations
                 column: "CreatedAt",
                 value: new DateTime(2024, 4, 11, 8, 8, 46, 848, DateTimeKind.Utc).AddTicks(5805));
 
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
             migrationBuilder.InsertData(
                 table: "OrderDetail",
                 columns: new[] { "OrderDetailID", "CourseID", "CreatedAt", "DiscountID", "ModifiedAt", "OrderID", "PaymentID", "Quantity", "Subtotal", "UnitPrice" },
@@ -73,11 +78,7 @@ namespace Project1.Migrations
                     { 5, 5, new DateTime(2024, 4, 11, 8, 8, 46, 848, DateTimeKind.Utc).AddTicks(5815), null, null, 3, null, 5, 250m, 50m },
                     { 6, 6, new DateTime(2024, 4, 11, 8, 8, 46, 848, DateTimeKind.Utc).AddTicks(5817), null, null, 3, null, 6, 360m, 60m }
                 });
-        }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
             migrationBuilder.DeleteData(
                 table: "OrderDetail",
                 keyColumn: "OrderDetailID",

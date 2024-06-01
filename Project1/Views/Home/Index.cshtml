@@ -175,14 +175,14 @@
                 }
             },
             mounted() {
-                var url1 = "@Url.Action("GetQuantity", "Home")";
+                var url1 = "/Home/GetQuantity";
                 axios.get(url1).then(response => {
                     this.quantity = response.data;
                 }).catch(error => {
                     alert(error);
                 });
 
-                var url2 = "@Url.Action("GetAverage", "Home")";
+                var url2 = "@Url.Action("GetAverageRating", "Home")";
                 axios.get(url2).then(response => {
                     this.average = response.data;
                 }).catch(error => {

@@ -77,15 +77,16 @@ namespace Project1.Migrations
                 columns: new[] { "CreatedAt", "OrderDate" },
                 values: new object[] { new DateTime(2024, 4, 11, 16, 3, 2, 52, DateTimeKind.Local).AddTicks(9536), new DateTime(2024, 4, 11, 16, 3, 2, 52, DateTimeKind.Local).AddTicks(9535) });
 
-            migrationBuilder.InsertData(
-                table: "OrderDetail",
-                columns: new[] { "OrderDetailID", "CourseID", "CreatedAt", "DiscountID", "ModifiedAt", "OrderID", "PaymentID", "Quantity", "Subtotal", "UnitPrice" },
-                values: new object[] { 1, 1, new DateTime(2024, 4, 11, 8, 3, 2, 52, DateTimeKind.Utc).AddTicks(9602), null, null, 1, null, 1, 10m, 10m });
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.InsertData(
+                table: "OrderDetail",
+                columns: new[] { "OrderDetailID", "CourseID", "CreatedAt", "DiscountID", "ModifiedAt", "OrderID", "PaymentID", "Quantity", "Subtotal", "UnitPrice" },
+                values: new object[] { 1, 1, new DateTime(2024, 4, 11, 8, 3, 2, 52, DateTimeKind.Utc).AddTicks(9602), null, null, 1, null, 1, 10m, 10m });
+
             migrationBuilder.DeleteData(
                 table: "OrderDetail",
                 keyColumn: "OrderDetailID",

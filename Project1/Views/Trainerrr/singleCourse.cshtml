@@ -186,7 +186,7 @@
             mounted() {
                 this.memberID = sessionStorage.getItem("MemID");
                 const cid = sessionStorage.getItem("ActID");
-                const url1 = `~/Trainerrr/getsingleCourse?id=${cid}`;
+                const url1 = `/Trainerrr/getsingleCourse?id=${cid}`;
                 axios.get(url1)
                     .then(response => {
                         this.course = response.data;
@@ -196,7 +196,7 @@
                         console.error(error);
                     });
 
-                const url2 = `~/Trainerrr/getClassSchedule?id=${cid}`;
+                const url2 = `/Trainerrr/getClassSchedule?id=${cid}`;
                 axios.get(url2)
                     .then(response => {
                         if (response.data.length > 0) {
@@ -212,7 +212,7 @@
                         console.error(error);
                     });
 
-                const url3 = `~/Browse/ViewRating?id=${cid}`;
+                const url3 = `/Browse/ViewRating?id=${cid}`;
                 axios.get(url3).then(response => {
                     if (response.data.length > 0) {
                         this.courseRatings = response.data.map(e => ({
@@ -231,7 +231,7 @@
                         return;
                     }
                     const cid = sessionStorage.getItem("ActID");
-                    axios.post('~/Browse/AddToCart', {
+                    axios.post('/Browse/AddToCart', {
                         courseID: cid,
                         memberID: this.memberID,
                         selectedSchedules: this.selectedSchedules
@@ -251,7 +251,7 @@
                         return;
                     }
                     const cid = sessionStorage.getItem("ActID");
-                    axios.post('~/Browse/AddCourseRating', {
+                    axios.post('/Browse/AddCourseRating', {
                         courseID: cid,
                         memberID: this.memberID,
                         rating: this.newComment.rating,

@@ -46,21 +46,21 @@ namespace Project1.Data.Migrations
                 oldType: "nvarchar(128)",
                 oldMaxLength: 128);
 
-            migrationBuilder.AddColumn<string>(
-                name: "Description",
-                table: "AspNetRoles",
-                type: "nvarchar(100)",
-                maxLength: 100,
-                nullable: false,
-                defaultValue: "");
+            //migrationBuilder.AddColumn<string>(
+            //    name: "Description",
+            //    table: "AspNetRoles",
+            //    type: "nvarchar(100)",
+            //    maxLength: 100,
+            //    nullable: false,
+            //    defaultValue: "");
 
-            migrationBuilder.AddColumn<string>(
-                name: "DisplayName",
-                table: "AspNetRoles",
-                type: "nvarchar(100)",
-                maxLength: 100,
-                nullable: false,
-                defaultValue: "");
+            //migrationBuilder.AddColumn<string>(
+            //    name: "DisplayName",
+            //    table: "AspNetRoles",
+            //    type: "nvarchar(100)",
+            //    maxLength: 100,
+            //    nullable: false,
+            //    defaultValue: "");
         }
 
         /// <inheritdoc />

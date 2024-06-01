@@ -11,19 +11,6 @@ namespace Project1.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "FollowItem",
-                columns: table => new
-                {
-                    FollowItemId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseID = table.Column<int>(type: "int", nullable: false),
-                    MemberID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FollowItem", x => x.FollowItemId);
-                });
 
             migrationBuilder.UpdateData(
                 table: "Cart",
@@ -428,6 +415,20 @@ namespace Project1.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+               name: "FollowItem",
+               columns: table => new
+               {
+                   FollowItemId = table.Column<int>(type: "int", nullable: false)
+                       .Annotation("SqlServer:Identity", "1, 1"),
+                   CourseID = table.Column<int>(type: "int", nullable: false),
+                   MemberID = table.Column<int>(type: "int", nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_FollowItem", x => x.FollowItemId);
+               });
+
             migrationBuilder.DropTable(
                 name: "FollowItem");
 
