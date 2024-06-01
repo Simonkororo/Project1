@@ -415,7 +415,7 @@
                     }
                 },
                 mounted() {
-                    const CategoryNumberUrl = `/Browse/CategoryNumber`;
+                    const CategoryNumberUrl = `~/Browse/CategoryNumber`;
                     axios.get(CategoryNumberUrl).then(response => {
                         this.categoryNumber = response.data;
                     }).catch(error => {
@@ -440,7 +440,7 @@
                 },
                 methods: {
                     actInfo: function (courseId) {
-                        axios.post('/Home/add1click', { courseID: courseId })
+                        axios.post('~/Home/add1click', { courseID: courseId })
                             .then(response => {
                                 if (response.status === 200) {
                                     console.log('Click count updated successfully.');

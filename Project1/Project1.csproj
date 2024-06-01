@@ -34,6 +34,7 @@
   <ItemGroup>
     <Content Remove="bundleconfig.json" />
     <Content Remove="Views\Trainerrr\BlogDetails.cshtml" />
+    <Content Remove="wwwroot\img\DALL·E 2024-05-21 00.24.35 - A logo for a project named %27寵護動%27 which focuses on dog training. The logo should incorporate elements representing dogs, training, and care. It should .webp" />
   </ItemGroup>
 
   <ItemGroup>

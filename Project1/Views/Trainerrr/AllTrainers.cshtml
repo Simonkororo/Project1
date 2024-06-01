@@ -121,11 +121,11 @@
                 },
                 viewTrainerBlog(trainerID) {
                     console.log("Navigating to trainer blog with ID:", trainerID); // Add this line to debug
-                    window.location.href = `/Trainerrr/TrainerBlog/${trainerID}`;
+                    window.location.href = `~/Trainerrr/TrainerBlog/${trainerID}`;
                 }
             },
             mounted() {
-                var url = "/Trainerrr/getTrainers";
+                var url = "~/Trainerrr/getTrainers";
 
                 axios.get(url).then(response => {
                     console.log("Trainers data:", response.data); // Add this line to debug
