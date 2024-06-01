@@ -165,7 +165,7 @@
                 
             },
             mounted() {
-                const GetClassScheduleUrl = `~/Browse/GetClassSchedule`;
+                const GetClassScheduleUrl = `/Browse/GetClassSchedule`;
                 axios.get(GetClassScheduleUrl).then(response => {
                     // Clear the existing classSchedule before populating it with new data
                     this.classSchedule = [];
@@ -198,7 +198,7 @@
             // Trigger AJAX call to update the database
             const updateSubtotal = function () {
                 $.ajax({
-                    url: '~/Browse/UpdateSubtotal',
+                    url: '/Browse/UpdateSubtotal',
                     type: 'GET',
                     data: {
 
@@ -215,7 +215,7 @@
             };
             $.ajax({
                 type: 'POST',
-                url: '~/Browse/UpdateCartItem',
+                url: '/Browse/UpdateCartItem',
                 data: {
                     courseId: courseID,
                     scheduleId: scheduleId,
@@ -239,7 +239,7 @@
            
             const updateDatabase = function (newQuantity, cartId) {
                 $.ajax({
-                    url: '~/Browse/UpdateQuantity',
+                    url: '/Browse/UpdateQuantity',
                     type: 'POST',
                     data: { 
                         quantity: newQuantity,
@@ -259,7 +259,7 @@
 
             const updateSubtotal = function () {
                 $.ajax({
-                    url: '~/Browse/UpdateSubtotal',
+                    url: '/Browse/UpdateSubtotal',
                     type: 'GET',
                     data: {
                         
@@ -277,7 +277,7 @@
 
             const validateDiscountCode = function (discountCode) {
                 $.ajax({
-                    url: '~/Browse/ValidateDiscountCode',
+                    url: '/Browse/ValidateDiscountCode',
                     type: 'GET',
                     data: {
                         discountCode: discountCode,
@@ -315,7 +315,7 @@
             };
             const deleteCartItem = function (courseId) {
                 $.ajax({
-                    url: '~/Browse/Delete',
+                    url: '/Browse/Delete',
                     type: 'POST',
                     data: {
                         id: courseId,

@@ -862,20 +862,20 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/vue@3.4.25/dist/vue.global.js"></script>
     <script>
-        var getBlogUrl = "~/Trainerrr/GetBlog"; // 部落格
-        var createPostUrl = "~/Trainerrr/CreatePost"; // 貼文新增
-        var editPostUrl = "~/Trainerrr/EditPost"; // 編輯貼文
-        var deletePostUrl = "~/Trainerrr/DeletePost"; // 刪除貼文
-        var getCoursesUrl = "~/Trainerrr/GetCourses"; // 顯示課程
-        var createCourseUrl = "~/Trainerrr/CreateCourse"; // 新增課程
-        var getDropdownDataUrl = "~/Trainerrr/GetDropdownData"; // 課程種類下拉式選單資訊
-        var getCurrentTrainerInfoUrl = "~/Trainerrr/GetCurrentTrainerInfo"; // 訓練師誰?
-        var editCourseUrl = "~/Trainerrr/EditCourse"; // 編輯課程
-        var publishCourseUrl = "~/Trainerrr/PublishCourse"; // 發佈課程
-        var deleteCourseUrl = "~/Trainerrr/DeleteCourse"; // 刪除課程
-        var retractPublishUrl = "~/Trainerrr/RetractPublish"; // 收回課程
-        var getPublishedSchedulesUrl = "~/Trainerrr/GetPublishedSchedules"; // 取得已發佈資訊
-        var GetReservationsUrl = "~/Trainerrr/GetReservations";//查看誰預約
+        var getBlogUrl = "/Trainerrr/GetBlog"; // 部落格
+        var createPostUrl = "/Trainerrr/CreatePost"; // 貼文新增
+        var editPostUrl = "/Trainerrr/EditPost"; // 編輯貼文
+        var deletePostUrl = "/Trainerrr/DeletePost"; // 刪除貼文
+        var getCoursesUrl = "/Trainerrr/GetCourses"; // 顯示課程
+        var createCourseUrl = "/Trainerrr/CreateCourse"; // 新增課程
+        var getDropdownDataUrl = "/Trainerrr/GetDropdownData"; // 課程種類下拉式選單資訊
+        var getCurrentTrainerInfoUrl = "/Trainerrr/GetCurrentTrainerInfo"; // 訓練師誰?
+        var editCourseUrl = "/Trainerrr/EditCourse"; // 編輯課程
+        var publishCourseUrl = "/Trainerrr/PublishCourse"; // 發佈課程
+        var deleteCourseUrl = "/Trainerrr/DeleteCourse"; // 刪除課程
+        var retractPublishUrl = "/Trainerrr/RetractPublish"; // 收回課程
+        var getPublishedSchedulesUrl = "/Trainerrr/GetPublishedSchedules"; // 取得已發佈資訊
+        var GetReservationsUrl = "/Trainerrr/GetReservations";//查看誰預約
         var VueApp = {
             data() {
                 return {
@@ -1436,7 +1436,7 @@
             var calendarEl = document.getElementById('calendar');
             var tooltip = document.getElementById('tooltip');
 
-            axios.get(`~/Trainerrr/getTrainerSchedule?id=${mid}`).then(response => {
+            axios.get(`/Trainerrr/getTrainerSchedule?id=${mid}`).then(response => {
                 const schedules = response.data;
                 const events = schedules.map(schedule => {
                     return {
