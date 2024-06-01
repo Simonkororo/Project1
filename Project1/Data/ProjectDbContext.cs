@@ -21,6 +21,27 @@ namespace Project1.Data
         .Property(b => b.IsTrainer)
         .IsRequired(false); // 設定為允許null
 
+            modelBuilder.Entity<Course>(entity =>
+            {
+                entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.Property(e => e.TotalAmount).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<OrderDetail>(entity =>
+            {
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<Payment>(entity =>
+            {
+                entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
+            });
+
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Order>().HasData(
                 new Order { OrderID = 1, MemberID = 1, OrderDate = DateTime.Now, OrderStatus = "Processing", TotalAmount = 100, CreatedAt = DateTime.Now, },
@@ -463,7 +484,7 @@ new Course { CourseID = 15, CourseName = "貓咪社交化培訓", TrainerID = 5,
 
         public virtual DbSet<CourseType> CourseType { get; set; }
 
-
+        public virtual DbSet<EcpayOrders> EcpayOrders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
