@@ -52,17 +52,17 @@ namespace Project1.Data
             //    );
 
             //modelBuilder.Entity<OrderDetail>().HasData(
-            //    new OrderDetail { OrderDetailID = 1, OrderID = 1, CourseID = 1, Quantity = 2, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 2, OrderID = 1, CourseID = 2, Quantity = 4, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 3, OrderID = 1, CourseID = 3, Quantity = 3, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 4, OrderID = 2, CourseID = 4, Quantity = 3, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 5, OrderID = 2, CourseID = 5, Quantity = 3, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 6, OrderID = 2, CourseID = 3, Quantity = 2, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 7, OrderID = 3, CourseID = 3, Quantity = 5, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 8, OrderID = 3, CourseID = 4, Quantity = 7, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 9, OrderID = 4, CourseID = 2, Quantity = 6, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 10, OrderID = 4, CourseID = 3, Quantity = 8, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
-            //    new OrderDetail { OrderDetailID = 11, OrderID = 4, CourseID = 3, Quantity = 8, UnitPrice = 100, CreatedAt = DateTime.UtcNow }
+            //    new OrderDetail { OrderDetailID = 1, OrderID = 1, CourseID = 1, Quantity = 2, UnitPrice = 100, CreatedAt = DateTime.UtcNow, SchedulerID=4 },
+            //    new OrderDetail { OrderDetailID = 2, OrderID = 1, CourseID = 1, Quantity = 4, UnitPrice = 100, CreatedAt = DateTime.UtcNow, SchedulerID = 4 },
+            //    new OrderDetail { OrderDetailID = 3, OrderID = 1, CourseID = 1, Quantity = 3, UnitPrice = 100, CreatedAt = DateTime.UtcNow, SchedulerID = 4 },
+            //    new OrderDetail { OrderDetailID = 4, OrderID = 2, CourseID = 2, Quantity = 3, UnitPrice = 100, CreatedAt = DateTime.UtcNow, SchedulerID = 7 },
+            //    new OrderDetail { OrderDetailID = 5, OrderID = 2, CourseID = 2, Quantity = 3, UnitPrice = 100, CreatedAt = DateTime.UtcNow, SchedulerID = 7 },
+            //    new OrderDetail { OrderDetailID = 6, OrderID = 2, CourseID = 2, Quantity = 2, UnitPrice = 100, CreatedAt = DateTime.UtcNow, SchedulerID = 7 },
+            //    new OrderDetail { OrderDetailID = 7, OrderID = 2, CourseID = 3, Quantity = 5, UnitPrice = 100, CreatedAt = DateTime.UtcNow, SchedulerID = 9 },
+            //    new OrderDetail { OrderDetailID = 8, OrderID = 2, CourseID = 3, Quantity = 7, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
+            //    new OrderDetail { OrderDetailID = 9, OrderID = 3, CourseID = 3, Quantity = 6, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
+            //    new OrderDetail { OrderDetailID = 10, OrderID = 3, CourseID = 3, Quantity = 8, UnitPrice = 100, CreatedAt = DateTime.UtcNow },
+            //    new OrderDetail { OrderDetailID = 11, OrderID = 3, CourseID = 3, Quantity = 8, UnitPrice = 100, CreatedAt = DateTime.UtcNow }
             //    );
 
             modelBuilder.Entity<Course>().HasData(
