@@ -80,7 +80,7 @@ namespace Project1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TrainerID,MemberID,TrainerName,SpecializationID,Experience,Qualifications,Status,Photo")] Trainer trainer, IFormFile photo) //photo傳不進來 資料庫:string Client:IFormFile
+        public async Task<IActionResult> Create([Bind("TrainerID,MemberID,TrainerName,SpecializationID,Experience,Qualifications,Status")] Trainer trainer, IFormFile photo) //photo傳不進來 資料庫:string Client:IFormFile
         {
             
             if (ModelState.IsValid)
