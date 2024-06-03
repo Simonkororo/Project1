@@ -108,7 +108,7 @@ namespace Project1.Controllers
                     var uniqueFileName = $"{fileName}_{Guid.NewGuid()}{extension}";
 
                     // 指定保存路徑
-                    var uploadPath = Path.Combine(_environment.WebRootPath, "img", "TrainersPhoto");
+                    var uploadPath = Path.Combine(_environment.WebRootPath, "/img", "TrainersPhoto");
                     var filePath = Path.Combine(uploadPath, uniqueFileName);
 
                     // 確保目錄存在
@@ -124,7 +124,7 @@ namespace Project1.Controllers
                     }
 
                     // 將圖片路徑保存到資料庫
-                    trainer.Photo = Path.Combine("img", "TrainersPhoto", uniqueFileName).Replace("\\", "/");
+                    trainer.Photo = Path.Combine("/img", "TrainersPhoto", uniqueFileName).Replace("\\", "/");
                 }
 
                 _context.Add(trainer);
@@ -211,7 +211,7 @@ namespace Project1.Controllers
                             await photo.CopyToAsync(stream);
                         }
 
-                        existingTrainer.Photo = Path.Combine("img", "TrainersPhoto", uniqueFileName).Replace("\\", "/");
+                        existingTrainer.Photo = Path.Combine("/img", "TrainersPhoto", uniqueFileName).Replace("\\", "/");
                     }
 
                     _context.Update(existingTrainer);
