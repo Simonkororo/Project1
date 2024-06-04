@@ -170,7 +170,8 @@ namespace Project1.Controllers
                 _db.SaveChanges();
 
                 //寫入Order
-                IEnumerable < ShoppingCart > cartItemList = _db.Cart.Where(c => c.MemberID == memberId);
+                //IEnumerable < ShoppingCart > cartItemList = _db.Cart.Where(c => c.MemberID == memberId);
+                List<ShoppingCart> cartItemList = _db.Cart.Where(c => c.MemberID == memberId).ToList();
                 DbSet<Course> courseList = _db.Course;
                 decimal total = cartItemList
                     .Join(
@@ -191,6 +192,7 @@ namespace Project1.Controllers
                 _db.SaveChanges();
 
                 //寫入OrderDetail
+               
                 foreach (ShoppingCart cart in cartItemList)
                 {
                     OrderDetail orderDetail = new OrderDetail();
