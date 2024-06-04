@@ -121,7 +121,7 @@ namespace Project1.Controllers
                 _context.Add(member);
                 await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
-                //TempData["SuccessMessage"] = "會員加入成功";
+                TempData["SuccessMessage"] = "會員加入成功";
                 return RedirectToAction("Index", "Home");
             }
             return View(member);

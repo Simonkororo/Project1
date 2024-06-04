@@ -8,13 +8,13 @@
 
 <h4>會員資料</h4>
 <hr />
-@* @if (TempData["SuccessMessage"] != null)
+@if (TempData["SuccessMessage"] != null)
 {
     <script>
         var message = '@Html.Raw(TempData["SuccessMessage"].ToString())';
         alert(message);
     </script>
-} *@
+}
 @section Styles{
     <style>
         .hidden-field {
@@ -97,7 +97,7 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
     <script>
         // 初始化Dropzone
         Dropzone.autoDiscover = false;
@@ -122,5 +122,5 @@
                 });
             }
         });
-    </script>
+    </script> *@
 }

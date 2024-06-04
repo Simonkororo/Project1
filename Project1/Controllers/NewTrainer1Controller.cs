@@ -81,7 +81,7 @@ namespace Project1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TrainerID,MemberID,TrainerName,SpecializationID,Experience,Qualifications,Status,Photo")] Trainer trainer, IFormFile photo)
+        public async Task<IActionResult> Create([Bind("TrainerID,MemberID,TrainerName,SpecializationID,Experience,Qualifications,Status")] Trainer trainer)
         {
             if (ModelState.IsValid)
             {
@@ -98,35 +98,36 @@ namespace Project1.Controllers
                 }
 
                 //保存圖片
-                if (photo != null && photo.Length > 0)
-                {
-                    // 生成唯一的檔名
-                    var fileName = Path.GetFileNameWithoutExtension(photo.FileName);
-                    var extension = Path.GetExtension(photo.FileName);
-                    var uniqueFileName = $"{fileName}_{Guid.NewGuid()}{extension}";
+                //if (photo != null && photo.Length > 0)
+                //{
+                //    // 生成唯一的檔名
+                //    var fileName = Path.GetFileNameWithoutExtension(photo.FileName);
+                //    var extension = Path.GetExtension(photo.FileName);
+                //    var uniqueFileName = $"{fileName}_{Guid.NewGuid()}{extension}";
 
-                    // 指定保存路徑
-                    var uploadPath = Path.Combine(_environment.WebRootPath, "/img", "TrainersPhoto");
-                    var filePath = Path.Combine(uploadPath, uniqueFileName);
+                //    // 指定保存路徑
+                //    var uploadPath = Path.Combine(_environment.WebRootPath, "img", "TrainersPhoto");
+                //    var filePath = Path.Combine(uploadPath, uniqueFileName);
 
-                    // 確保目錄存在
-                    if (!Directory.Exists(uploadPath))
-                    {
-                        Directory.CreateDirectory(uploadPath);
-                    }
+                //    // 確保目錄存在
+                //    if (!Directory.Exists(uploadPath))
+                //    {
+                //        Directory.CreateDirectory(uploadPath);
+                //    }
 
-                    // 保存檔案
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await photo.CopyToAsync(stream);
-                    }
+                //    // 保存檔案
+                //    using (var stream = new FileStream(filePath, FileMode.Create))
+                //    {
+                //        await photo.CopyToAsync(stream);
+                //    }
 
-                    // 將圖片路徑保存到資料庫
-                    trainer.Photo = Path.Combine("/img", "TrainersPhoto", uniqueFileName).Replace("\\", "/");
-                }
+                //    // 將圖片路徑保存到資料庫
+                //    trainer.Photo = Path.Combine("img", "TrainersPhoto", uniqueFileName).Replace("\\", "/");
+                //}
 
                 _context.Add(trainer);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "會員加入成功";
                 return RedirectToAction("Index", "Home");
             }
             return View(trainer);
@@ -138,14 +139,14 @@ namespace Project1.Controllers
             //抓到MemberID
             var userId = _userManager.GetUserId(User);
             var member = await _context.Member.FirstOrDefaultAsync(m => m.AspID == userId);
-            Console.WriteLine($"MemberID: {member.MemberID}");
+            //Console.WriteLine($"MemberID: {member.MemberID}");
             var trainer = await _context.Trainer.FirstOrDefaultAsync(t => t.MemberID == member.MemberID);
             if (trainer == null)
             {
                 return NotFound();
             }
-            var photoPath = trainer.Photo;
-            ViewData["PhotoPath"] = photoPath;
+            //var photoPath = trainer.Photo;
+            //ViewData["PhotoPath"] = photoPath;
             return View(trainer);
         }
 
@@ -173,37 +174,28 @@ namespace Project1.Controllers
                     //    return NotFound();
                     //}
 
-                    if (photo != null && photo.Length > 0)
-                    {
-                        // 刪除舊圖片
-                        if (!string.IsNullOrEmpty(existingTrainer.Photo))
-                        {
-                            var oldPhotoPath = Path.Combine(_environment.WebRootPath, existingTrainer.Photo);
-                            if (System.IO.File.Exists(oldPhotoPath))
-                            {
-                                System.IO.File.Delete(oldPhotoPath);
-                            }
-                        }
+                    //if (photo != null && photo.Length > 0)
+                    //{
 
-                        // 保存新圖片
-                        var fileName = Path.GetFileNameWithoutExtension(photo.FileName);
-                        var extension = Path.GetExtension(photo.FileName);
-                        var uniqueFileName = $"{fileName}_{Guid.NewGuid()}{extension}";
-                        var uploadPath = Path.Combine(_environment.WebRootPath, "img", "TrainersPhoto");
-                        var filePath = Path.Combine(uploadPath, uniqueFileName);
+                    //    // 保存新圖片
+                    //    var fileName = Path.GetFileNameWithoutExtension(photo.FileName);
+                    //    var extension = Path.GetExtension(photo.FileName);
+                    //    var uniqueFileName = $"{fileName}_{Guid.NewGuid()}{extension}";
+                    //    var uploadPath = Path.Combine(_environment.WebRootPath, "img/", "TrainersPhoto");
+                    //    var filePath = Path.Combine(uploadPath, uniqueFileName);
 
-                        if (!Directory.Exists(uploadPath))
-                        {
-                            Directory.CreateDirectory(uploadPath);
-                        }
+                    //    if (!Directory.Exists(uploadPath))
+                    //    {
+                    //        Directory.CreateDirectory(uploadPath);
+                    //    }
 
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await photo.CopyToAsync(stream);
-                        }
+                    //    using (var stream = new FileStream(filePath, FileMode.Create))
+                    //    {
+                    //        await photo.CopyToAsync(stream);
+                    //    }
 
-                        existingTrainer.Photo = Path.Combine("/img", "TrainersPhoto", uniqueFileName).Replace("\\", "/");
-                    }
+                    //    existingTrainer.Photo = Path.Combine("img/TrainersPhoto", uniqueFileName);/*.Replace("\\", "/");*/
+                    //}
 
                     _context.Update(existingTrainer);
                     await _context.SaveChangesAsync();

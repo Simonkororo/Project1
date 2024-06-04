@@ -10,6 +10,13 @@
 
 <h4>訓練師基本資料</h4>
 <hr />
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        var message = '@Html.Raw(TempData["SuccessMessage"].ToString())';
+        alert(message);
+    </script>
+}
 @section Styles {
     <style>
         .hidden-field {
@@ -63,11 +70,11 @@
                 <input asp-for="Status" class="form-control" />
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="Photo" class="control-label"></label>
                 <input asp-for="Photo" class="form-control" type="file" name="photo" />
                 <span asp-validation-for="Photo" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
                 <input type="submit" value="成為訓練師" class="btn btn-primary" />
             </div>

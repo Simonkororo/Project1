@@ -35,6 +35,12 @@
     <Content Remove="bundleconfig.json" />
     <Content Remove="Views\Trainerrr\BlogDetails.cshtml" />
     <Content Remove="wwwroot\img\DALL·E 2024-05-21 00.24.35 - A logo for a project named %27寵護動%27 which focuses on dog training. The logo should incorporate elements representing dogs, training, and care. It should .webp" />
+    <Content Remove="wwwroot\img\TrainersPhoto\2b3c2e2f-e429-4449-9649-5390463da886_ME_1b3b8be1-27af-477b-8b95-94abd4c3d532.png" />
+    <Content Remove="wwwroot\img\TrainersPhoto\images_e207ab12-12b7-426f-9a90-d9c442d8075b.png" />
+    <Content Remove="wwwroot\img\TrainersPhoto\下載_18e38524-813e-47e4-a515-e789a04f666f.jpg" />
+    <Content Remove="wwwroot\img\TrainersPhoto\下載_1e1823d7-8087-4e12-92b5-fe2e0b2ee938.jpg" />
+    <Content Remove="wwwroot\img\TrainersPhoto\下載_513f616f-d89a-4de3-ac8e-dd52f9b74276.jpg" />
+    <Content Remove="wwwroot\img\TrainersPhoto\下載_57082b39-bbac-4962-95d1-b27afcd9dcf0.jpg" />
   </ItemGroup>
 
   <ItemGroup>

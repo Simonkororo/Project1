@@ -80,11 +80,11 @@
             <input asp-for="Photo" class="form-control" />
             <span asp-validation-for="Photo" class="text-danger"></span>
             </div> *@
-            <!-- 顯示當前圖片 -->
+            @* <!-- 顯示當前圖片 -->
             <div class="form-group">
                 <label>當前大頭貼</label>
                 <div>
-                    <img src="@Url.Content($"{ViewData["PhotoPath"]}")" alt="Member Photo" style="max-width: 200px;" />
+                    <img src="@Url.Content($"{ViewData["PhotoPath"]}")" alt="Trainer Photo" style="max-width: 200px;" />
                 </div>
             </div>
             <!-- 上傳新圖片 -->
@@ -92,7 +92,7 @@
                 <label asp-for="Photo" class="control-label"></label>
                 <input asp-for="Photo" class="form-control" type="file" name="photo" />
                 <span asp-validation-for="Photo" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
                 <input type="submit" value="修改" class="btn btn-primary" onclick="confirmSubmission(event)" />
             </div>
