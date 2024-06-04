@@ -1202,20 +1202,22 @@ namespace Project1.Controllers
             }
 
             var classSchedules = await _context.ClassSchedule
-                                               .Where(c => c.CourseID == id && c.Scheduler >= DateTime.UtcNow)
-                                               .ToListAsync();
+                                   .Where(c => c.CourseID == id && c.Scheduler >= DateTime.UtcNow)
+                                   .ToListAsync();
 
-            for(int i = 0; i < classSchedules.Count; i++)
+            for (int i = classSchedules.Count - 1; i >= 0; i--)
             {
-                var enrollcount = await _context.OrderDetail.Where(od => od.CourseID == id && od.SchedulerID == classSchedules[i].SchedulerID).CountAsync();
+                var enrollment = await _context.OrderDetail.Where(od => od.CourseID == id).ToListAsync();
+                var enrollcount = enrollment.Where(c => c.SchedulerID == classSchedules[i].SchedulerID).Count();
                 var maxparticipants = _context.Course.Where(c => c.CourseID == id).Select(c => c.MaxParticipants).FirstOrDefault();
-                if(enrollcount >= maxparticipants)
+                if (enrollcount >= maxparticipants)
                 {
                     classSchedules.RemoveAt(i);
-                }               
+                }
             }
 
-            for(int i = 0; i < classSchedules.Count; i++)
+
+            for (int i = 0; i < classSchedules.Count; i++)
             {
                 var enrollcount = await _context.OrderDetail.Where(od => od.CourseID == id && od.SchedulerID == classSchedules[i].SchedulerID).CountAsync();
                 var maxparticipants = _context.Course.Where(c => c.CourseID == id).Select(c => c.MaxParticipants).FirstOrDefault();

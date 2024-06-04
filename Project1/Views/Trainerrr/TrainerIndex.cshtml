@@ -27,22 +27,22 @@
     <thead>
         <tr>
             <th>
-                Trainer ID
+                訓練師ID
             </th>
             <th>
-                Trainer Name
+                名字
             </th>
             <th>
-                Specialization
+                專長
             </th>
             <th>
-                Experience
+                經驗
             </th>
             <th>
-                Qualifications
+                證照
             </th>
             <th>
-                Status
+                審核狀態
             </th>
             <th>
                 
@@ -63,7 +63,7 @@
                         <input type="hidden" name="trainerId" value="@trainer.TrainerID" />
                         <button type="submit" name="newStatus" value="通過" class="btn btn-success">批准</button>
                         <button type="submit" name="newStatus" value="未通過" class="btn btn-danger">拒絕</button>
-                        <a asp-action="TrainerDetails" asp-route-id="@trainer.TrainerID" >Details</a>
+                        <a asp-action="TrainerDetails" asp-route-id="@trainer.TrainerID" >檢視</a>
                     </form>
                 </td>
             </tr>
