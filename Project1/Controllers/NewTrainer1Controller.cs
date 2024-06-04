@@ -6,34 +6,35 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using Project1.Data;
 using Project1.Models;
-using Project1.ViewModels;
 
 namespace Project1.Controllers
 {
-    public class NewTrainerController : VerifyUserRoles
+    public class NewTrainer1Controller : VerifyUserRoles
     {
         private readonly UserManager<ProjectUser> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
-        private readonly ProjectDbContext _context;
+        private readonly SignInManager<ProjectUser> _signInManager;
         private readonly IWebHostEnvironment _environment;
-        public NewTrainerController(UserManager<ProjectUser> userManager, SignInManager<ProjectUser> signInManager, RoleManager<ApplicationRole> roleManager, ProjectDbContext context, IWebHostEnvironment environment) : base(userManager, signInManager)
+        private readonly ProjectDbContext _context;
+
+        public NewTrainer1Controller(ProjectDbContext context, IWebHostEnvironment environment, UserManager<ProjectUser> userManager, SignInManager<ProjectUser> signInManager, RoleManager<ApplicationRole> roleManager) : base(userManager, signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _signInManager = signInManager;
             _context = context;
             _environment = environment;
         }
 
-        // GET: NewTrainer
+        // GET: NewTrainer1
         public async Task<IActionResult> Index()
         {
             return View(await _context.Trainer.ToListAsync());
         }
 
-        // GET: NewTrainer/Details/5
+        // GET: NewTrainer1/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -51,7 +52,7 @@ namespace Project1.Controllers
             return View(trainer);
         }
 
-        // GET: NewTrainer/Create
+        // GET: NewTrainer1/Create
         public async Task<IActionResult> Create()
         {
             var user = await _userManager.GetUserAsync(User); //在AspUser中找到User
@@ -75,14 +76,13 @@ namespace Project1.Controllers
             return View(model);
         }
 
-        // POST: NewTrainer/Create
+        // POST: NewTrainer1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TrainerID,MemberID,TrainerName,SpecializationID,Experience,Qualifications,Status")] Trainer trainer, IFormFile photo) //photo傳不進來 資料庫:string Client:IFormFile
+        public async Task<IActionResult> Create([Bind("TrainerID,MemberID,TrainerName,SpecializationID,Experience,Qualifications,Status,Photo")] Trainer trainer, IFormFile photo)
         {
-            
             if (ModelState.IsValid)
             {
                 var user = await _userManager.GetUserAsync(User);
@@ -96,8 +96,6 @@ namespace Project1.Controllers
                 {
                     return NotFound("Member not found");
                 }
-
-                trainer.MemberID = member.MemberID;
 
                 //保存圖片
                 if (photo != null && photo.Length > 0)
@@ -131,12 +129,11 @@ namespace Project1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Home");
             }
-
             return View(trainer);
         }
 
-        // GET: NewTrainer/Edit/5
-        public async Task<IActionResult> Edit(int? id) //抓不到ID
+        // GET: NewTrainer1/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
             //抓到MemberID
             var userId = _userManager.GetUserId(User);
@@ -149,15 +146,10 @@ namespace Project1.Controllers
             }
             var photoPath = trainer.Photo;
             ViewData["PhotoPath"] = photoPath;
-            //var trainer = await _context.Trainer.FindAsync(id);
-            //if (trainer == null)
-            //{
-            //    return NotFound();
-            //}
             return View(trainer);
         }
 
-        // POST: NewTrainer/Edit/5
+        // POST: NewTrainer1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -171,7 +163,6 @@ namespace Project1.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
@@ -234,7 +225,7 @@ namespace Project1.Controllers
             return View(trainer);
         }
 
-        // GET: NewTrainer/Delete/5
+        // GET: NewTrainer1/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -252,7 +243,7 @@ namespace Project1.Controllers
             return View(trainer);
         }
 
-        // POST: NewTrainer/Delete/5
+        // POST: NewTrainer1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

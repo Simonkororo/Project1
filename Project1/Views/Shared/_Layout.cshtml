@@ -71,11 +71,11 @@
                                     <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Browse" asp-action="ViewCart">我的購物車</a></li>
                                     @if (ViewBag.IsTrainer == null || !ViewBag.IsTrainer)
                                     {
-                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="NewTrainer" asp-action="Create">我要成為訓練師</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="NewTrainer1" asp-action="Create">我要成為訓練師</a></li>
                                     }
                                     @if (ViewBag.IsTrainer != null && ViewBag.IsTrainer)
                                     {
-                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="NewTrainer" asp-action="Edit">訓練師基本資料</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="NewTrainer1" asp-action="Edit">訓練師基本資料</a></li>
                                     }
                                 </ul>
                             </li>
