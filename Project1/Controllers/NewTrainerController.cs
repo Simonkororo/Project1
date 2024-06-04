@@ -52,6 +52,7 @@ namespace Project1.Controllers
         }
 
         // GET: NewTrainer/Create
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             var user = await _userManager.GetUserAsync(User);
