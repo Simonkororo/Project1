@@ -228,6 +228,19 @@
                 height: 100%;
                 border: none;
             }
+        /* 按鈕顏色調整 */
+        .btn-succ {
+            color: #fff;
+            background-color: #BDB192;
+            border-color: #CCAD8E;
+        }
+
+            .btn-succ:hover {
+                color: #fff;
+                background-color: #BBA671;
+                border-color: #CCAD8E;
+            }
+
     </style>
 }
 
@@ -335,8 +348,8 @@
                                             <img class="card-img-top" src="@course.ThumbnailUrl" alt="Course image">
                                             <div class="card-body">
                                                 <h5 class="card-title">@course.CourseName</h5>
-                                                <p class="card-text">@course.Description</p>
-                                                <button class="btn btn-primary" onclick="showCourseDetails(@course.CourseID)">查看</button>
+                                            
+                                                <button class="btn btn-succ" onclick="showCourseDetails(@course.CourseID)">查看</button>
                                             </div>
                                         </div>
                                     </div>
@@ -377,7 +390,7 @@
                     <p><strong>價格:</strong> $<span id="coursePrice"></span></p>
                     <p><strong>課程時間表:</strong> <span id="courseScheduler"></span></p>
                 </div>
-                <button class="btn btn-primary" onclick="reserveCourse()">預約</button>
+                <button class="btn btn-succ" onclick="reserveCourse()">預約</button>
             </div>
         </div>
     </div>
